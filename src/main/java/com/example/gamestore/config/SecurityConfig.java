@@ -10,13 +10,14 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.WebSecurityConfigurer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
-public class SecurityConfig implements WebSecurityConfigurer {
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private Environment environment;
 
@@ -56,15 +57,5 @@ public class SecurityConfig implements WebSecurityConfigurer {
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception{
         auth.userDetailsService(userSecurityService).passwordEncoder(passwordEncoder());
-    }
-
-    @Override
-    public void init(SecurityBuilder builder) throws Exception {
-
-    }
-
-    @Override
-    public void configure(SecurityBuilder builder) throws Exception {
-
     }
 }
