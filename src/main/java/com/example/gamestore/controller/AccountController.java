@@ -149,6 +149,11 @@ public class AccountController {
         model.addAttribute("user", user);
 
         model.addAttribute("classActiveEdit", true);
-        return "accountprofile";
+        return "accountProfile";
+    }
+
+    @RequestMapping("/accountProfile")
+    public String accountProfile(){
+        return "accountProfile";
     }
 }
