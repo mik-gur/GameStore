@@ -10,7 +10,7 @@
       <a th:href="@{/}">
     <button class="btn btn-outline-success me-2" type="button">Main button</button>
       </a>
-    <button class="btn btn-sm btn-outline-secondary" type="button">Smaller button</button>
+    <button class="btn btn-sm btn-outline-secondary" type="button"th:classappend="@{classActiveLogin}? 'in active'">Smaller button</button>
   </form>
 </nav>
 </body>
