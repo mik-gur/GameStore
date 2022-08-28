@@ -18,7 +18,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
-    private Environment env;
+    private Environment environment;
 
     @Autowired
     private UserSecurityService userSecurityService;
@@ -32,7 +32,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             "/js/**",
             "/image/**",
             "/",
-            "/account"
+            "/newUser",
+            "/forgetPassword",
+            "/login"
     };
 
     @Override
